@@ -15,6 +15,7 @@ ThemeData lightThemeData(BuildContext context) {
       secondary: kSecondaryColor,
       error: kErrorColor,
     ),
+    visualDensity: VisualDensity.adaptivePlatformDensity,
   );
 }
 
@@ -31,6 +32,7 @@ ThemeData darkThemeData(BuildContext context) {
       secondary: kSecondaryColor,
       error: kErrorColor,
     ),
+    visualDensity: VisualDensity.adaptivePlatformDensity,
   );
 }
 

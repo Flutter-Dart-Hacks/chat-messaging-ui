@@ -16,11 +16,12 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
         child: Column(
           children: [
             const Spacer(
-              flex: 2,
+              flex: 1,
             ),
             const Image(
               image: AssetImage('assets/images/welcome_image.png'),
               fit: BoxFit.cover,
+              height: 310,
             ),
             const Spacer(
               flex: 3,
@@ -46,25 +47,29 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
               ),
             ),
             const Spacer(
-              flex: 3,
+              flex: 4,
             ),
             FittedBox(
               child: TextButton(
                 onPressed: () {},
                 child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
-                    Text(
-                      'Skip',
-                      style: Theme.of(context).textTheme.bodyText1?.copyWith(
-                            color: Theme.of(context)
-                                .textTheme
-                                .bodyText1
-                                ?.color
-                                ?.withOpacity(0.8),
-                          ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: 3),
+                      child: Text(
+                        'Skip',
+                        style: Theme.of(context).textTheme.bodyText1?.copyWith(
+                              color: Theme.of(context)
+                                  .textTheme
+                                  .bodyText1
+                                  ?.color
+                                  ?.withOpacity(0.8),
+                            ),
+                      ),
                     ),
                     const SizedBox(
-                      width: kDefaultPadding / 4,
+                      width: kDefaultPadding / 3,
                     ),
                     Icon(
                       Icons.arrow_forward_ios,
@@ -78,7 +83,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                   ],
                 ),
               ),
-            )
+            ),
+            const SizedBox(
+              height: 10,
+            ),
           ],
         ),
       ),

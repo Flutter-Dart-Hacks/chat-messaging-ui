@@ -1,5 +1,6 @@
-import 'package:chatmessagings/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:chatmessagings/screens/signinsignup/signin_signup.dart';
+import 'package:chatmessagings/constants.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -51,7 +52,16 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
             ),
             FittedBox(
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const SigninOrSignup();
+                      },
+                    ),
+                  );
+                },
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [

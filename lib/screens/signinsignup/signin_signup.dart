@@ -1,6 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:chatmessagings/components/primary_button.dart';
 import 'package:chatmessagings/constants.dart';
-import 'package:flutter/material.dart';
+import 'package:chatmessagings/screens/chats/chat_screen.dart';
 
 class SigninOrSignup extends StatefulWidget {
   const SigninOrSignup({Key? key}) : super(key: key);
@@ -11,7 +12,7 @@ class SigninOrSignup extends StatefulWidget {
 
 class _SigninOrSignupState extends State<SigninOrSignup> {
   // Ambil icon sesuai warna brighness
-  String getIconImageBrightness(BuildContext context) {
+  String getIconImageDarkLight(BuildContext context) {
     return MediaQuery.of(context).platformBrightness == Brightness.light
         ? 'assets/images/Logo_light.png'
         : 'assets/images/Logo_dark.png';
@@ -32,7 +33,7 @@ class _SigninOrSignupState extends State<SigninOrSignup> {
               ),
               Image(
                 image: AssetImage(
-                  getIconImageBrightness(context),
+                  getIconImageDarkLight(context),
                 ),
                 fit: BoxFit.cover,
                 height: 150,
@@ -40,7 +41,16 @@ class _SigninOrSignupState extends State<SigninOrSignup> {
               const Spacer(),
               PrimaryButton(
                 text: 'Sign In',
-                press: () {},
+                press: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) {
+                        return const ChatScreen();
+                      },
+                    ),
+                  );
+                },
               ),
               const SizedBox(height: kDefaultPadding * 1.5),
               PrimaryButton(

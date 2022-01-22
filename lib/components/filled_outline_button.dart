@@ -21,6 +21,7 @@ class FillOutlineButton extends StatelessWidget {
         side: const BorderSide(color: Colors.white),
       ),
       color: isFilled ? Colors.white : Colors.transparent,
+      elevation: isFilled ? 4 : 0,
       onPressed: press,
       child: Text(
         text,

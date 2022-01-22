@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:chatmessagings/constants.dart';
 
@@ -8,10 +10,15 @@ class PrimaryButton extends StatelessWidget {
     required this.press,
     this.color = kPrimaryColor,
     this.padding = const EdgeInsets.all(kDefaultPadding * 0.75),
+    this.callbackString,
   }) : super(key: key);
 
   final String text;
+
+  // Penggunaan callback di Dart Flutter
+  // https://www.digitalocean.com/community/tutorials/flutter-widget-communication
   final VoidCallback press;
+  final Function(String)? callbackString;
   final Color color;
   final EdgeInsets padding;
 

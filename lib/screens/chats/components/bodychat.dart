@@ -1,6 +1,7 @@
 import 'package:chatmessagings/constants.dart';
 import 'package:chatmessagings/components/filled_outline_button.dart';
 import 'package:chatmessagings/models/chat.dart';
+import 'package:chatmessagings/screens/chats/components/chat_card.dart';
 import 'package:flutter/material.dart';
 
 class BodyChat extends StatefulWidget {
@@ -37,6 +38,7 @@ class _BodyChatState extends State<BodyChat> {
               itemBuilder: (context, index) {
                 return ChatCards(
                   chatItem: chatsData[index],
+                  pressList: () {},
                 );
               },
               itemCount: chatsData.length,
@@ -44,24 +46,6 @@ class _BodyChatState extends State<BodyChat> {
           )
         ],
       ),
-    );
-  }
-}
-
-class ChatCards extends StatelessWidget {
-  const ChatCards({
-    Key? key,
-    required this.chatItem,
-  }) : super(key: key);
-
-  final Chat chatItem;
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        CircleAvatar(backgroundImage: AssetImage(chatItem.image)),
-      ],
     );
   }
 }

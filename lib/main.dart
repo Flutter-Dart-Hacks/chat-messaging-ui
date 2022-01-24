@@ -17,7 +17,7 @@ class ChatApps extends StatelessWidget {
       theme: lightThemeData(context),
       darkTheme: darkThemeData(context),
       // Untuk ujicoba dark dan light mode
-      themeMode: ThemeMode.system,
+      themeMode: ThemeMode.light,
       home: const WelcomeScreen(),
     );
   }

@@ -35,11 +35,8 @@ class _BodyChatState extends State<BodyChat> {
           Expanded(
             child: ListView.builder(
               itemBuilder: (context, index) {
-                return Row(
-                  children: [
-                    CircleAvatar(
-                        backgroundImage: AssetImage(chatsData[index].image))
-                  ],
+                return ChatCards(
+                  chatItem: chatsData[index],
                 );
               },
               itemCount: chatsData.length,
@@ -47,6 +44,24 @@ class _BodyChatState extends State<BodyChat> {
           )
         ],
       ),
+    );
+  }
+}
+
+class ChatCards extends StatelessWidget {
+  const ChatCards({
+    Key? key,
+    required this.chatItem,
+  }) : super(key: key);
+
+  final Chat chatItem;
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        CircleAvatar(backgroundImage: AssetImage(chatItem.image)),
+      ],
     );
   }
 }

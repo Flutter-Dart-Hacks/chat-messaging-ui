@@ -16,6 +16,12 @@ ThemeData lightThemeData(BuildContext context) {
       error: kErrorColor,
     ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: Colors.white,
+      selectedItemColor: kContentColorLightTheme.withOpacity(0.7),
+      unselectedItemColor: kContentColorLightTheme.withOpacity(0.4),
+      selectedIconTheme: const IconThemeData(color: kPrimaryColor),
+    ),
   );
 }
 
@@ -23,7 +29,7 @@ ThemeData darkThemeData(BuildContext context) {
   return ThemeData.dark().copyWith(
     primaryColor: kPrimaryColor,
     scaffoldBackgroundColor: kContentColorLightTheme,
-    appBarTheme: appBarTheme,
+    appBarTheme: appBarThemeDark,
     iconTheme: const IconThemeData(color: kContentColorDarkTheme),
     textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme)
         .apply(bodyColor: kContentColorDarkTheme),
@@ -33,7 +39,15 @@ ThemeData darkThemeData(BuildContext context) {
       error: kErrorColor,
     ),
     visualDensity: VisualDensity.adaptivePlatformDensity,
+    bottomNavigationBarTheme: BottomNavigationBarThemeData(
+      backgroundColor: kContentColorLightTheme,
+      selectedItemColor: Colors.white70,
+      unselectedItemColor: kContentColorDarkTheme.withOpacity(0.32),
+      selectedIconTheme: const IconThemeData(color: kPrimaryColor),
+    ),
   );
 }
 
 const appBarTheme = AppBarTheme(centerTitle: false, elevation: 0);
+const appBarThemeDark = AppBarTheme(
+    centerTitle: false, elevation: 0, backgroundColor: kPrimaryColor);

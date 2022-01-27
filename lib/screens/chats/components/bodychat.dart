@@ -2,6 +2,7 @@ import 'package:chatmessagings/constants.dart';
 import 'package:chatmessagings/components/filled_outline_button.dart';
 import 'package:chatmessagings/models/chat.dart';
 import 'package:chatmessagings/screens/chats/components/chat_card.dart';
+import 'package:chatmessagings/screens/messages/message_screen.dart';
 import 'package:flutter/material.dart';
 
 class BodyChat extends StatefulWidget {
@@ -38,7 +39,14 @@ class _BodyChatState extends State<BodyChat> {
               itemBuilder: (context, index) {
                 return ChatCards(
                   chatItem: chatsData[index],
-                  pressList: () {},
+                  pressList: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) {
+                        return const MessageDetail();
+                      }),
+                    );
+                  },
                 );
               },
               itemCount: chatsData.length,

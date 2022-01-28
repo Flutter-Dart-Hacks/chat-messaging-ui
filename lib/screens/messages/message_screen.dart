@@ -72,20 +72,22 @@ class _MessageDetailState extends State<MessageDetail> {
         // https://flutterrdart.com/flutter-popup-menu-button-example/
         PopupMenuButton(
           itemBuilder: (context) {
-            return const [
+            return [
               PopupMenuItem(
                 value: 0,
-                child: Text('Submenu satu'),
+                child: const Text('Submenu satu'),
+                onTap: () {},
+                enabled: true,
               ),
               PopupMenuItem(
                 value: 1,
-                child: Text('Submenu dua'),
+                child: const Text('Submenu dua'),
+                onTap: () {},
+                enabled: false,
               )
             ];
           },
-          onSelected: (value) {
-            print('Selected value $value');
-          },
+          onSelected: (value) {},
           tooltip: 'Options menu tambahan',
         )
       ],

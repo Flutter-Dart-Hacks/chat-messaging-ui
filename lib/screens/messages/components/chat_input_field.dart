@@ -43,8 +43,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
               child: InkWell(
                 onTap: () {},
                 child: const Padding(
-                  padding:
-                      EdgeInsets.only(left: 8, right: 8, top: 8, bottom: 8),
+                  padding: EdgeInsets.all(8),
                   child: Icon(
                     Icons.mic,
                     color: kPrimaryColor,

@@ -25,17 +25,13 @@ class _BodyMessageDetailState extends State<BodyMessageDetail> {
     return Column(
       children: [
         Expanded(
-          child: Padding(
-            padding:
-                const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
-            child: ListView.builder(
-              itemBuilder: (context, index) {
-                return MessageItem(
-                  chatMessage: demoChatMessages[index],
-                );
-              },
-              itemCount: demoChatMessages.length,
-            ),
+          child: ListView.builder(
+            itemBuilder: (context, index) {
+              return MessageItem(
+                chatMessage: demoChatMessages[index],
+              );
+            },
+            itemCount: demoChatMessages.length,
           ),
         ),
         ChatInputField(
@@ -56,25 +52,45 @@ class MessageItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: getAxisAlignmentContent(chatMessage),
-      children: [
-        Container(
-          margin: const EdgeInsets.only(top: kDefaultPadding),
-          padding: const EdgeInsets.symmetric(
-            horizontal: kDefaultPadding * 0.75,
-            vertical: kDefaultPadding / 2,
-          ),
-          decoration: BoxDecoration(
-            color: kPrimaryColor,
-            borderRadius: BorderRadius.circular(30),
-          ),
-          child: Text(
-            chatMessage.text,
-            style: const TextStyle(color: Colors.white),
-          ),
-        ),
-      ],
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
+      child: Row(
+        mainAxisAlignment: getAxisAlignmentContent(chatMessage),
+        children: [
+          TextMessage(chatMessage: chatMessage),
+        ],
+      ),
+    );
+  }
+}
+
+class TextMessage extends StatelessWidget {
+  const TextMessage({
+    Key? key,
+    required this.chatMessage,
+  }) : super(key: key);
+
+  final ChatMessage chatMessage;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: const EdgeInsets.only(top: kDefaultPadding),
+      padding: const EdgeInsets.symmetric(
+        horizontal: kDefaultPadding * 0.75,
+        vertical: kDefaultPadding / 2,
+      ),
+      decoration: BoxDecoration(
+        color: kPrimaryColor.withOpacity(chatMessage.isSender ? 1 : 0.1),
+        borderRadius: BorderRadius.circular(30),
+      ),
+      child: Text(
+        chatMessage.text,
+        style: TextStyle(
+            color: chatMessage.isSender
+                ? Colors.white
+                : Theme.of(context).textTheme.bodyText1?.color),
+      ),
     );
   }
 }

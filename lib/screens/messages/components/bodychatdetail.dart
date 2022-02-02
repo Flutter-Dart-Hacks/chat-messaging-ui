@@ -1,7 +1,8 @@
-import 'package:chatmessagings/constants.dart';
 import 'package:chatmessagings/screens/messages/components/chat_input_field.dart';
 import 'package:chatmessagings/models/chat_message.dart';
 import 'package:flutter/material.dart';
+
+import 'message_item.dart';
 
 class BodyMessageDetail extends StatefulWidget {
   const BodyMessageDetail({Key? key}) : super(key: key);
@@ -37,60 +38,6 @@ class _BodyMessageDetailState extends State<BodyMessageDetail> {
         ChatInputField(
             chatContentEditingController: _chatContentEditingController)
       ],
-    );
-  }
-}
-
-class MessageItem extends StatelessWidget {
-  const MessageItem({Key? key, required this.chatMessage}) : super(key: key);
-
-  final ChatMessage chatMessage;
-
-  MainAxisAlignment getAxisAlignmentContent(ChatMessage message) {
-    return message.isSender ? MainAxisAlignment.end : MainAxisAlignment.start;
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding / 2),
-      child: Row(
-        mainAxisAlignment: getAxisAlignmentContent(chatMessage),
-        children: [
-          TextMessage(chatMessage: chatMessage),
-        ],
-      ),
-    );
-  }
-}
-
-class TextMessage extends StatelessWidget {
-  const TextMessage({
-    Key? key,
-    required this.chatMessage,
-  }) : super(key: key);
-
-  final ChatMessage chatMessage;
-
-  @override
-  Widget build(BuildContext context) {
-    return Container(
-      margin: const EdgeInsets.only(top: kDefaultPadding),
-      padding: const EdgeInsets.symmetric(
-        horizontal: kDefaultPadding * 0.75,
-        vertical: kDefaultPadding / 2,
-      ),
-      decoration: BoxDecoration(
-        color: kPrimaryColor.withOpacity(chatMessage.isSender ? 1 : 0.1),
-        borderRadius: BorderRadius.circular(30),
-      ),
-      child: Text(
-        chatMessage.text,
-        style: TextStyle(
-            color: chatMessage.isSender
-                ? Colors.white
-                : Theme.of(context).textTheme.bodyText1?.color),
-      ),
     );
   }
 }

@@ -58,4 +58,28 @@ List demoChatMessages = [
     messageStatus: MessageStatus.notView,
     isSender: true,
   ),
+  ChatMessage(
+    text: "This looks great man!!",
+    messageType: ChatMessageType.text,
+    messageStatus: MessageStatus.viewed,
+    isSender: false,
+  ),
+  ChatMessage(
+    text: "Glad you like it",
+    messageType: ChatMessageType.text,
+    messageStatus: MessageStatus.notView,
+    isSender: true,
+  ),
+  ChatMessage(
+    text: "This looks great man!!",
+    messageType: ChatMessageType.text,
+    messageStatus: MessageStatus.viewed,
+    isSender: false,
+  ),
+  ChatMessage(
+    text: "Glad you like it",
+    messageType: ChatMessageType.text,
+    messageStatus: MessageStatus.notView,
+    isSender: true,
+  ),
 ];

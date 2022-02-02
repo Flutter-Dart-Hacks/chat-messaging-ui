@@ -38,7 +38,7 @@ class _ChatInputFieldState extends State<ChatInputField> {
         child: Row(
           children: [
             Material(
-              // Menggunakan parent material dan inkwell
+              // Menggunakan parent material dan Inkwell
               // https://stackoverflow.com/a/65760259
               child: InkWell(
                 onTap: () {},

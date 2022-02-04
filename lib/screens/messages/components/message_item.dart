@@ -83,18 +83,39 @@ class MessageStatusDot extends StatefulWidget {
 }
 
 class _MessageStatusDotState extends State<MessageStatusDot> {
+  IconData checkStatusSentMessage() {
+    if (widget.message.messageStatus == MessageStatus.notSent) {
+      return Icons.close;
+    } else {
+      return Icons.done;
+    }
+  }
+
+  Color? checkStatusSentColor() {
+    switch (widget.message.messageStatus) {
+      case MessageStatus.notSent:
+        return kErrorColor;
+      case MessageStatus.notView:
+        return Theme.of(context).textTheme.bodyText1?.color?.withOpacity(0.3);
+      case MessageStatus.viewed:
+        return kPrimaryColor;
+      default:
+        return Colors.transparent;
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: const EdgeInsets.only(left: kDefaultPadding / 2),
       height: 20,
       width: 20,
-      decoration: const BoxDecoration(
-        color: kPrimaryColor,
+      decoration: BoxDecoration(
+        color: checkStatusSentColor(),
         shape: BoxShape.circle,
       ),
       child: Icon(
-        Icons.done,
+        checkStatusSentMessage(),
         size: 10,
         color: Theme.of(context).scaffoldBackgroundColor,
       ),

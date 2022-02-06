@@ -6,7 +6,7 @@ A new Flutter project.
 
 Latihan membuat tampilan UI dari video di Youtube channel The Flutter Way [Chat Messaging App](https://www.youtube.com/watch?v=uiJF-ShOLyo).
 
-Latihan diikuti dengan beberapa modifikasi dan penyesuaian coding sesuai fungsi Flutter dan Null safety terbaru.
+Latihan diikuti dengan beberapa modifikasi dan penyesuaian coding sesuai fungsi Flutter dan Null safety terbaru, dan penyesuaian dengan class Widget di Flutter 2.x .
 
 This project is a starting point for a Flutter application.
 
